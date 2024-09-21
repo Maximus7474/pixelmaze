@@ -1,6 +1,6 @@
 {
-    "name": "lb-phone-app-template-react",
-    "version": "2.0.0",
+    "name": "lb-phone-pixelmaze-gameapp",
+    "version": "0.0.0",
     "private": true,
     "homepage": "./",
     "type": "module",
