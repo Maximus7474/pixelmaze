@@ -16,9 +16,10 @@ export interface CellType {
 
 interface CellProps {
   cell: CellType;
+  backgroundColor?: string;
 }
 
-const Cell: React.FC<CellProps> = ({ cell }) => {
+const Cell: React.FC<CellProps> = ({ cell, backgroundColor }) => {
   return (
     <div
       style={{
@@ -29,6 +30,7 @@ const Cell: React.FC<CellProps> = ({ cell }) => {
         borderBottom: cell.walls.bottom ? '2px solid black' : '',
         borderLeft: cell.walls.left ? '2px solid black' : '',
         boxSizing: 'border-box',
+        backgroundColor: backgroundColor,
       }}
     />
   );

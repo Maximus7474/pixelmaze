@@ -4,9 +4,12 @@ import Cell, { CellType } from './Cell';
 interface MazeGridProps {
   grid: CellType[][];
   zoomLevel: number;
+  playerPosition: { row: number; col: number };
+  startCell: { row: number; col: number };
+  endCell: { row: number; col: number };
 }
 
-const MazeGrid: React.FC<MazeGridProps> = ({ grid, zoomLevel }) => {
+const MazeGrid: React.FC<MazeGridProps> = ({ grid, zoomLevel, playerPosition, startCell, endCell }) => {
   return (
     <div
       style={{
@@ -17,8 +20,19 @@ const MazeGrid: React.FC<MazeGridProps> = ({ grid, zoomLevel }) => {
         transition: 'transform 0.2s ease-out',
       }}
     >
-      {grid.flatMap(row =>
-        row.map(cell => <Cell key={`${cell.row}-${cell.col}`} cell={cell} />)
+      {grid.flatMap((row, rIndex) =>
+        row.map((cell, cIndex) => {
+          let backgroundColor = '';
+          if (rIndex === startCell.row && cIndex === startCell.col)  {
+            backgroundColor = 'green';
+          } else if (rIndex === endCell.row && cIndex === endCell.col) {
+            backgroundColor = 'red';
+          }
+
+          return (
+            <Cell key={`${cell.row}-${cell.col}`} cell={cell} backgroundColor={backgroundColor} />
+          );
+        })
       )}
     </div>
   );
