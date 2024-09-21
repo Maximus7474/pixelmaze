@@ -48,7 +48,7 @@ jobs:
         find . -mindepth 1 -not -path './build' -not -path './build/*' -delete
 
     - name: Compress Asset
-      run: cd release_assets && zip -r ../pixelmaze-gameapp.zip .
+      run: cd release_assets && zip -r ../pixelmaze.zip .
 
     - name: Create GitHub Release
       id: create_release
@@ -70,6 +70,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./pixelmaze-gameapp.zip
-        asset_name: pixelmaze-gameapp.zip
+        asset_path: ./pixelmaze.zip
+        asset_name: pixelmaze.zip
         asset_content_type: application/zip
