@@ -13,7 +13,7 @@ export default defineConfig(( {command} ) => ({
     optimizeDeps: {
         esbuildOptions: {
             mainFields: ['module', 'main'],
-            resolveExtensions: ['.js', '.jsx']
+            resolveExtensions: ['.ts', '.tsx']
         }
     },
     server: {
