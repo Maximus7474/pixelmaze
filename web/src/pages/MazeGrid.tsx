@@ -23,7 +23,9 @@ const MazeGrid: React.FC<MazeGridProps> = ({ grid, zoomLevel, playerPosition, st
       {grid.flatMap((row, rIndex) =>
         row.map((cell, cIndex) => {
           let backgroundColor = '';
-          if (rIndex === startCell.row && cIndex === startCell.col)  {
+          if (rIndex === playerPosition.row && cIndex === playerPosition.col){
+            backgroundColor = 'blue';
+          } else if (rIndex === startCell.row && cIndex === startCell.col)  {
             backgroundColor = 'green';
           } else if (rIndex === endCell.row && cIndex === endCell.col) {
             backgroundColor = 'red';
